@@ -1000,6 +1000,9 @@ asmlinkage long sys_fspick(int dfd, const char __user *path, unsigned int flags)
 asmlinkage long sys_pidfd_send_signal(int pidfd, int sig,
 				       siginfo_t __user *info,
 				       unsigned int flags);
+				       
+/* Custom syscall defined by YiChangmin */
+asmlinkage long sys_mycall(void);
 
 /*
  * Architecture-specific system calls
@@ -1420,5 +1423,6 @@ long ksys_old_shmctl(int shmid, int cmd, struct shmid_ds __user *buf);
 long compat_ksys_semtimedop(int semid, struct sembuf __user *tsems,
 			    unsigned int nsops,
 			    const struct old_timespec32 __user *timeout);
+
 
 #endif
