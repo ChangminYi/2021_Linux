@@ -1,0 +1,1437 @@
+cscope 15 $HOME/Î∞îÌÉïÌôîÎ©¥/list_module               0000007948
+	@list_module.c
+
+1 
+	~<löux/kî√l.h
+>
+
+2 
+	~<löux/moduÀ.h
+>
+
+3 
+	~<löux/öô.h
+>
+
+4 
+	~<löux/li°.h
+>
+
+5 
+	~<löux/¶ab.h
+>
+
+6 
+	~<löux/time.h
+>
+
+8 
+	#SMALL
+ 1000
+
+	)
+
+9 
+	#MIDDLE
+ 10000
+
+	)
+
+10 
+	#LARGE
+ 100000
+
+	)
+
+11 
+	#BILLION
+ 1000000000
+
+	)
+
+13 
+	smy_node
+ {
+
+14 
+li°_hód
+ 
+	mli°
+;
+
+15 
+	md©a
+;
+
+18 
+	$ˇl˛ock3
+(
+time•ec
+ *
+•˛ock
+, *
+tŸÆ_time
+, *
+tŸÆ_cou¡
+) {
+
+19 
+tmp
+, 
+tmp_n
+;
+
+20 
+timedñay
+ = 0;
+
+22 if(
+•˛ock
+[1].
+tv_n£c
+ >= spclock[0].tv_nsec) {
+
+23 
+tmp
+ = 
+•˛ock
+[1].
+tv_£c
+ - spclock[0].tv_sec;
+
+24 
+tmp_n
+ = 
+•˛ock
+[1].
+tv_n£c
+ - spclock[0].tv_nsec;
+
+27 
+tmp
+ = 
+•˛ock
+[1].
+tv_£c
+ - spclock[0].tv_sec - 1;
+
+28 
+tmp_n
+ = 
+BILLION
+ + 
+•˛ock
+[1].
+tv_n£c
+ - spclock[0].tv_nsec;
+
+30 
+timedñay
+ = 
+BILLION
+ * 
+tmp
+ + 
+tmp_n
+;
+
+32 
+	`__sync_„tch_™d_add
+(
+tŸÆ_time
+, 
+timedñay
+);
+
+33 
+	`__sync_„tch_™d_add
+(
+tŸÆ_cou¡
+, 1);
+
+35  
+timedñay
+;
+
+36 
+	}
+}
+
+38 
+	$°ru˘_exam∂e
+() {
+
+39 
+li°_size
+ = 
+SMALL
+;
+
+40 
+li°_hód
+ 
+my_li°
+;
+
+41 
+my_node
+ *
+cur
+, *
+tmp
+;
+
+42 
+tŸÆ_time
+ = 0, 
+tŸÆ_cou¡
+ = 0;
+
+43 
+time_to_¥öt
+ = 0;
+
+44 
+time•ec
+ 
+•˛ock
+[2];
+
+45 
+i
+;
+
+48 
+	`INIT_LIST_HEAD
+(&
+my_li°
+);
+
+49 
+	`¥ötk
+("Li° sizêi†%d\n", 
+li°_size
+);
+
+53 
+i
+ = 0; i < 
+li°_size
+; i++){
+
+54 
+	`gën°imeofday
+(&
+•˛ock
+[0]);
+
+56 
+my_node
+ *
+√w_node
+ = 
+	`kmÆloc
+((my_node), 
+GFP_KERNEL
+);
+
+57 
+√w_node
+->
+d©a
+ = 
+i
+;
+
+58 
+	`li°_add
+(&
+√w_node
+->
+li°
+, &
+my_li°
+);
+
+61 
+	`gën°imeofday
+(&
+•˛ock
+[1]);
+
+62 
+time_to_¥öt
+ +
+	`ˇl˛ock3
+(
+•˛ock
+, &
+tŸÆ_time
+, &
+tŸÆ_cou¡
+);
+
+64 
+	`¥ötk
+("Addôi⁄Åime: %Œd, cou¡: %Œd\n", 
+time_to_¥öt
+, 
+tŸÆ_cou¡
+);
+
+68 
+tŸÆ_time
+ = 0, 
+tŸÆ_cou¡
+ = 0, 
+time_to_¥öt
+ = 0;
+
+69 
+i
+ = 0; i < 
+li°_size
+; i++){
+
+70 
+	`gën°imeofday
+(&
+•˛ock
+[0]);
+
+72 
+	`li°_f‹_óch_íåy
+(
+cur
+, &
+my_li°
+, 
+li°
+) {
+
+73 if(
+cur
+->
+d©a
+ =
+li°_size
+ / 2) {
+
+78 
+	`gën°imeofday
+(&
+•˛ock
+[1]);
+
+79 
+time_to_¥öt
+ +
+	`ˇl˛ock3
+(
+•˛ock
+, &
+tŸÆ_time
+, &
+tŸÆ_cou¡
+);
+
+81 
+	`¥ötk
+("SórchögÅime: %Œd, cou¡: %Œd\n", 
+time_to_¥öt
+, 
+tŸÆ_cou¡
+);
+
+85 
+tŸÆ_time
+ = 0, 
+tŸÆ_cou¡
+ = 0, 
+time_to_¥öt
+ = 0;
+
+86 
+	`li°_f‹_óch_íåy_ß„
+(
+cur
+, 
+tmp
+, &
+my_li°
+, 
+li°
+) {
+
+87 
+	`gën°imeofday
+(&
+•˛ock
+[0]);
+
+89 
+	`li°_dñ
+(&
+cur
+->
+li°
+);
+
+90 
+	`k‰ì
+(
+cur
+);
+
+92 
+	`gën°imeofday
+(&
+•˛ock
+[1]);
+
+93 
+time_to_¥öt
+ +
+	`ˇl˛ock3
+(
+•˛ock
+, &
+tŸÆ_time
+, &
+tŸÆ_cou¡
+);
+
+95 
+	`¥ötk
+("Dñëi⁄Åime: %Œd, cou¡: %Œd\n", 
+time_to_¥öt
+, 
+tŸÆ_cou¡
+);
+
+96 
+	}
+}
+
+98 
+__öô
+ 
+	$hñlo_moduÀ_öô
+() {
+
+99 
+	`¥ötk
+("Module inserted.\n");
+
+102 
+	`°ru˘_exam∂e
+();
+
+103 
+	`¥ötk
+("Linked-list manipulationÉnded.\n");
+
+106 
+	}
+}
+
+108 
+__exô
+ 
+	$hñlo_moduÀ_˛ónup
+() {
+
+109 
+	`¥ötk
+("Module unloaded.\n");
+
+110 
+	}
+}
+
+112 
+moduÀ_öô
+(
+hñlo_moduÀ_öô
+);
+
+113 
+moduÀ_exô
+(
+hñlo_moduÀ_˛ónup
+);
+
+114 
+MODULE_LICENSE
+("GPL");
+
+	@list_module.mod.c
+
+1 
+	~<löux/buûd-ß….h
+>
+
+2 
+	~<löux/moduÀ.h
+>
+
+3 
+	~<löux/vîmagic.h
+>
+
+4 
+	~<löux/compûî.h
+>
+
+6 
+	gBUILD_SALT
+;
+
+8 
+MODULE_INFO
+(
+vîmagic
+, 
+VERMAGIC_STRING
+);
+
+9 
+MODULE_INFO
+(
+«me
+, 
+KBUILD_MODNAME
+);
+
+11 
+__visibÀ
+ 
+moduÀ
+ 
+__this_moduÀ
+
+
+12 
+__£˘i⁄
+(.
+gnu
+.
+lök⁄˚
+.
+this_moduÀ
+) = {
+
+13 .
+«me
+ = 
+KBUILD_MODNAME
+,
+
+14 .
+	göô
+ = 
+öô_moduÀ
+,
+
+15 #ifde‡
+CONFIG_MODULE_UNLOAD
+
+
+16 .
+	gexô
+ = 
+˛ónup_moduÀ
+,
+
+18 .
+	g¨ch
+ = 
+MODULE_ARCH_INIT
+,
+
+21 #ifde‡
+CONFIG_RETPOLINE
+
+
+22 
+MODULE_INFO
+(
+ªçﬁöe
+, "Y");
+
+25 c⁄° 
+modvîsi⁄_öfo
+ 
+	g____vîsi⁄s
+[]
+
+26 
+__u£d
+ 
+__£˘i⁄
+(
+__vîsi⁄s
+) = {
+
+37 
+MODULE_INFO
+(
+dïíds
+, "");
+
+40 
+MODULE_INFO
+(
+§cvîsi⁄
+, "C7129F60ADB9D41F3E3D8DA");
+
+	@/usr/include/linux/kernel.h
+
+2 #i‚de‡
+_LINUX_KERNEL_H
+
+
+3 
+	#_LINUX_KERNEL_H
+
+
+	)
+
+5 
+	~<löux/sysöfo.h
+>
+
+6 
+	~<löux/c⁄°.h
+>
+
+	@/usr/include/linux/module.h
+
+2 #i‚de‡
+_LINUX_MODULE_H
+
+
+3 
+	#_LINUX_MODULE_H
+
+
+	)
+
+6 
+	#MODULE_INIT_IGNORE_MODVERSIONS
+ 1
+
+	)
+
+7 
+	#MODULE_INIT_IGNORE_VERMAGIC
+ 2
+
+	)
+
+	@/usr/include/linux/time.h
+
+2 #i‚de‡
+_LINUX_TIME_H
+
+
+3 
+	#_LINUX_TIME_H
+
+
+	)
+
+5 
+	~<löux/ty≥s.h
+>
+
+6 
+	~<löux/time_ty≥s.h
+>
+
+8 #i‚de‡
+_STRUCT_TIMESPEC
+
+
+9 
+	#_STRUCT_TIMESPEC
+
+
+	)
+
+10 
+	stime•ec
+ {
+
+11 
+__kî√l_time_t
+ 
+	mtv_£c
+;
+
+12 
+	mtv_n£c
+;
+
+16 
+	stimevÆ
+ {
+
+17 
+__kî√l_time_t
+ 
+	mtv_£c
+;
+
+18 
+__kî√l_su£c⁄ds_t
+ 
+	mtv_u£c
+;
+
+21 
+	stimez⁄e
+ {
+
+22 
+	mtz_möuãswe°
+;
+
+23 
+	mtz_d°time
+;
+
+30 
+	#ITIMER_REAL
+ 0
+
+	)
+
+31 
+	#ITIMER_VIRTUAL
+ 1
+
+	)
+
+32 
+	#ITIMER_PROF
+ 2
+
+	)
+
+34 
+	sôimî•ec
+ {
+
+35 
+time•ec
+ 
+	mô_öãrvÆ
+;
+
+36 
+time•ec
+ 
+	mô_vÆue
+;
+
+39 
+	sôimîvÆ
+ {
+
+40 
+timevÆ
+ 
+	mô_öãrvÆ
+;
+
+41 
+timevÆ
+ 
+	mô_vÆue
+;
+
+47 
+	#CLOCK_REALTIME
+ 0
+
+	)
+
+48 
+	#CLOCK_MONOTONIC
+ 1
+
+	)
+
+49 
+	#CLOCK_PROCESS_CPUTIME_ID
+ 2
+
+	)
+
+50 
+	#CLOCK_THREAD_CPUTIME_ID
+ 3
+
+	)
+
+51 
+	#CLOCK_MONOTONIC_RAW
+ 4
+
+	)
+
+52 
+	#CLOCK_REALTIME_COARSE
+ 5
+
+	)
+
+53 
+	#CLOCK_MONOTONIC_COARSE
+ 6
+
+	)
+
+54 
+	#CLOCK_BOOTTIME
+ 7
+
+	)
+
+55 
+	#CLOCK_REALTIME_ALARM
+ 8
+
+	)
+
+56 
+	#CLOCK_BOOTTIME_ALARM
+ 9
+
+	)
+
+61 
+	#CLOCK_SGI_CYCLE
+ 10
+
+	)
+
+62 
+	#CLOCK_TAI
+ 11
+
+	)
+
+64 
+	#MAX_CLOCKS
+ 16
+
+	)
+
+65 
+	#CLOCKS_MASK
+ (
+CLOCK_REALTIME
+ | 
+CLOCK_MONOTONIC
+)
+
+	)
+
+66 
+	#CLOCKS_MONO
+ 
+CLOCK_MONOTONIC
+
+
+	)
+
+71 
+	#TIMER_ABSTIME
+ 0x01
+
+	)
+
+	@/usr/include/linux/const.h
+
+4 #i‚de‡
+_LINUX_CONST_H
+
+
+5 
+	#_LINUX_CONST_H
+
+
+	)
+
+16 #ifde‡
+__ASSEMBLY__
+
+
+17 
+	#_AC
+(
+X
+,
+Y
+Ë
+	)
+X
+
+18 
+	#_AT
+(
+T
+,
+X
+Ë
+	)
+X
+
+20 
+	#__AC
+(
+X
+,
+Y
+Ë(X##Y)
+
+	)
+
+21 
+	#_AC
+(
+X
+,
+Y
+Ë
+	`__AC
+(X,Y)
+
+	)
+
+22 
+	#_AT
+(
+T
+,
+X
+Ë((T)(X))
+
+	)
+
+25 
+	#_UL
+(
+x
+Ë(
+	`_AC
+(x, 
+UL
+))
+
+	)
+
+26 
+	#_ULL
+(
+x
+Ë(
+	`_AC
+(x, 
+ULL
+))
+
+	)
+
+28 
+	#_BITUL
+(
+x
+Ë(
+	`_UL
+(1Ë<< (x))
+
+	)
+
+29 
+	#_BITULL
+(
+x
+Ë(
+	`_ULL
+(1Ë<< (x))
+
+	)
+
+31 
+	#__ALIGN_KERNEL
+(
+x
+, 
+a
+Ë
+	`__ALIGN_KERNEL_MASK
+(x, (
+	`ty≥of
+(x))◊Ë- 1)
+
+	)
+
+32 
+	#__ALIGN_KERNEL_MASK
+(
+x
+, 
+mask
+Ë(((xË+ (mask)Ë& ~(mask))
+
+	)
+
+34 
+	#__KERNEL_DIV_ROUND_UP
+(
+n
+, 
+d
+Ë((“Ë+ (dË- 1Ë/ (d))
+
+	)
+
+	@/usr/include/linux/sysinfo.h
+
+2 #i‚de‡
+_LINUX_SYSINFO_H
+
+
+3 
+	#_LINUX_SYSINFO_H
+
+
+	)
+
+5 
+	~<löux/ty≥s.h
+>
+
+7 
+	#SI_LOAD_SHIFT
+ 16
+
+	)
+
+8 
+	ssysöfo
+ {
+
+9 
+__kî√l_l⁄g_t
+ 
+	mu±ime
+;
+
+10 
+__kî√l_ul⁄g_t
+ 
+	mlﬂds
+[3];
+
+11 
+__kî√l_ul⁄g_t
+ 
+	mtŸÆøm
+;
+
+12 
+__kî√l_ul⁄g_t
+ 
+	m‰ìøm
+;
+
+13 
+__kî√l_ul⁄g_t
+ 
+	msh¨edøm
+;
+
+14 
+__kî√l_ul⁄g_t
+ 
+	mbuf„ºam
+;
+
+15 
+__kî√l_ul⁄g_t
+ 
+	mtŸÆsw≠
+;
+
+16 
+__kî√l_ul⁄g_t
+ 
+	m‰ìsw≠
+;
+
+17 
+__u16
+ 
+	m¥ocs
+;
+
+18 
+__u16
+ 
+	m∑d
+;
+
+19 
+__kî√l_ul⁄g_t
+ 
+	mtŸÆhigh
+;
+
+20 
+__kî√l_ul⁄g_t
+ 
+	m‰ìhigh
+;
+
+21 
+__u32
+ 
+	mmem_unô
+;
+
+22 
+	m_f
+[20-2*(
+__kî√l_ul⁄g_t
+)-(
+__u32
+)];
+
+	@/usr/include/linux/time_types.h
+
+2 #i‚de‡
+_LINUX_TIME_TYPES_H
+
+
+3 
+	#_LINUX_TIME_TYPES_H
+
+
+	)
+
+5 
+	~<löux/ty≥s.h
+>
+
+7 
+	s__kî√l_time•ec
+ {
+
+8 
+__kî√l_time64_t
+ 
+	mtv_£c
+;
+
+9 
+	mtv_n£c
+;
+
+12 
+	s__kî√l_ôimî•ec
+ {
+
+13 
+__kî√l_time•ec
+ 
+	mô_öãrvÆ
+;
+
+14 
+__kî√l_time•ec
+ 
+	mô_vÆue
+;
+
+24 #i‚de‡
+__kî√l_ﬁd_timevÆ
+
+
+25 
+	s__kî√l_ﬁd_timevÆ
+ {
+
+26 
+__kî√l_l⁄g_t
+ 
+	mtv_£c
+;
+
+27 
+__kî√l_l⁄g_t
+ 
+	mtv_u£c
+;
+
+31 
+	s__kî√l_sock_timevÆ
+ {
+
+32 
+__s64
+ 
+	mtv_£c
+;
+
+33 
+__s64
+ 
+	mtv_u£c
+;
+
+	@/usr/include/linux/types.h
+
+2 #i‚de‡
+_LINUX_TYPES_H
+
+
+3 
+	#_LINUX_TYPES_H
+
+
+	)
+
+5 
+	~<asm/ty≥s.h
+>
+
+7 #i‚de‡
+__ASSEMBLY__
+
+
+9 
+	~<löux/posix_ty≥s.h
+>
+
+17 #ifde‡
+__CHECKER__
+
+
+18 
+	#__bôwi£__
+ 
+	`__©åibuã__
+((
+bôwi£
+))
+
+	)
+
+20 
+	#__bôwi£__
+
+
+	)
+
+22 
+	#__bôwi£
+ 
+__bôwi£__
+
+
+	)
+
+24 
+__u16
+ 
+	t__bôwi£
+ 
+	t__À16
+;
+
+25 
+__u16
+ 
+	t__bôwi£
+ 
+	t__be16
+;
+
+26 
+__u32
+ 
+	t__bôwi£
+ 
+	t__À32
+;
+
+27 
+__u32
+ 
+	t__bôwi£
+ 
+	t__be32
+;
+
+28 
+__u64
+ 
+	t__bôwi£
+ 
+	t__À64
+;
+
+29 
+__u64
+ 
+	t__bôwi£
+ 
+	t__be64
+;
+
+31 
+__u16
+ 
+	t__bôwi£
+ 
+	t__sum16
+;
+
+32 
+__u32
+ 
+	t__bôwi£
+ 
+	t__wsum
+;
+
+43 
+	#__Æig√d_u64
+ 
+__u64
+ 
+	`__©åibuã__
+((
+	`Æig√d
+(8)))
+
+	)
+
+44 
+	#__Æig√d_be64
+ 
+__be64
+ 
+	`__©åibuã__
+((
+	`Æig√d
+(8)))
+
+	)
+
+45 
+	#__Æig√d_À64
+ 
+__À64
+ 
+	`__©åibuã__
+((
+	`Æig√d
+(8)))
+
+	)
+
+47 
+	t__bôwi£
+ 
+	t__pﬁl_t
+;
+
+	@/usr/include/linux/posix_types.h
+
+2 #i‚de‡
+_LINUX_POSIX_TYPES_H
+
+
+3 
+	#_LINUX_POSIX_TYPES_H
+
+
+	)
+
+5 
+	~<löux/°ddef.h
+>
+
+22 #unde‡
+__FD_SETSIZE
+
+
+23 
+	#__FD_SETSIZE
+ 1024
+
+	)
+
+26 
+	mfds_bôs
+[
+__FD_SETSIZE
+ / (8 * ())];
+
+27 } 
+	t__kî√l_fd_£t
+;
+
+30 (*
+	t__kî√l_sigh™dÀr_t
+)();
+
+33 
+	t__kî√l_key_t
+;
+
+34 
+	t__kî√l_mqd_t
+;
+
+36 
+	~<asm/posix_ty≥s.h
+>
+
+	@/usr/include/linux/stddef.h
+
+4 #i‚de‡
+__Æways_ölöe
+
+
+5 
+	#__Æways_ölöe
+ 
+__ölöe__
+
+
+	)
+
+	@
+1
+.
+1
+/usr/include
+11
+290
+list_module.c
+list_module.mod.c
+/usr/include/linux/kernel.h
+/usr/include/linux/module.h
+/usr/include/linux/time.h
+/usr/include/linux/const.h
+/usr/include/linux/sysinfo.h
+/usr/include/linux/time_types.h
+/usr/include/linux/types.h
+/usr/include/linux/posix_types.h
+/usr/include/linux/stddef.h
