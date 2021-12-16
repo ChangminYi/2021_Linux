@@ -1,0 +1,1 @@
+cmd_/home/yichangmin/바탕화면/hash_rbtree/hash_rbtree.ko := ld -r -m elf_x86_64  -z max-page-size=0x200000  --build-id  -T ./scripts/module-common.lds -o /home/yichangmin/바탕화면/hash_rbtree/hash_rbtree.ko /home/yichangmin/바탕화면/hash_rbtree/hash_rbtree.o /home/yichangmin/바탕화면/hash_rbtree/hash_rbtree.mod.o;  true
