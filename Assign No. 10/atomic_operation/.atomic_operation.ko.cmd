@@ -1,0 +1,1 @@
+cmd_/home/yichangmin/바탕화면/atomic_operation/atomic_operation.ko := ld -r -m elf_x86_64  -z max-page-size=0x200000  --build-id  -T ./scripts/module-common.lds -o /home/yichangmin/바탕화면/atomic_operation/atomic_operation.ko /home/yichangmin/바탕화면/atomic_operation/atomic_operation.o /home/yichangmin/바탕화면/atomic_operation/atomic_operation.mod.o;  true
